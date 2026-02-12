@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 50% 10%;
+    --muted: 200 40% 96%;
+    --muted-foreground: 210 20% 46%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+    --border: 200 30% 90%;
+    --input: 200 30% 90%;
+    --primary: 210 80% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 50% 94%;
+    --secondary-foreground: 210 50% 10%;
+    --accent: 185 50% 90%;
+    --accent-foreground: 210 50% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 210 60% 55%;
+  }
+
+  .dark {
+    --background: 210 50% 6%;
+    --foreground: 200 40% 96%;
+    --muted: 210 40% 15%;
+    --muted-foreground: 200 25% 60%;
+    --card: 210 50% 6%;
+    --card-foreground: 200 40% 96%;
+    --border: 210 40% 18%;
+    --input: 210 40% 18%;
+    --primary: 210 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 15%;
+    --secondary-foreground: 200 40% 96%;
+    --accent: 185 40% 18%;
+    --accent-foreground: 200 40% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 200 40% 96%;
+    --ring: 210 50% 60%;
+  }
+
+  * { border-color: hsl(var(--border)); }
+}
