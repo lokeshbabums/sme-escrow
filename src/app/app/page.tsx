@@ -63,36 +63,7 @@ export default async function AppHome() {
       <Card>
         <CardHeader><CardTitle>Recent orders</CardTitle><CardDescription>Open to manage service milestones.</CardDescription></CardHeader>
         <CardContent>
-          {isAdmin ? (
-            <OrderFilter orders={orderCards} showDateFilters />
-          ) : (
-            <div className="space-y-3">
-              {projects.length===0 ? <div className="text-sm text-[hsl(var(--muted-foreground))]">No orders yet.</div> :
-                projects.map(p=>(
-                  <div key={p.id} className="rounded-2xl border p-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="min-w-0 flex-1">
-                      <div className="font-medium">{p.title}</div>
-                      <div className="text-sm text-[hsl(var(--muted-foreground))] line-clamp-1">{p.description}</div>
-                      <div className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5 text-xs text-[hsl(var(--muted-foreground))]">
-                        <span>Client: {p.client.name ?? p.client.email}</span>
-                        {p.vendor && <span>Vendor: {p.vendor.name ?? p.vendor.email}</span>}
-                        {p._count.orderItems > 0 && <span>{p._count.orderItems} items</span>}
-                        <span>{money(p.milestones.reduce((a,m)=>a+m.amountCents,0))} total</span>
-                      </div>
-                      <div className="flex flex-wrap gap-x-4 gap-y-0.5 text-xs text-[hsl(var(--muted-foreground))]">
-                        <span>Started: {fmtDate(p.createdAt)}</span>
-                        {p.status === "COMPLETED" && <span>Completed: {fmtDate(p.updatedAt)}</span>}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Badge>{p.status}</Badge>
-                      <Link href={`/app/projects/${p.id}`}><Button variant="outline">Open</Button></Link>
-                    </div>
-                  </div>
-                ))
-              }
-            </div>
-          )}
+          <OrderFilter orders={orderCards} showDateFilters />
         </CardContent>
       </Card>
     </div>
